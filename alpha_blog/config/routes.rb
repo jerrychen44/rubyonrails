@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
 
-  # for adding articles features
+  # for adding articles routes to pages, check the rake routes...
   resources :articles
 end

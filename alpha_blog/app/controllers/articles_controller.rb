@@ -10,11 +10,26 @@ class ArticlesController < ApplicationController
 
 
     @article = Article.new(article_params)
-    #.save will save to db
-    @article.save
 
-    #then we try to redirect to some page to show
-    redirect_to articles_show(@articles)
+    if @article.save    #.save will save to db
+      #if save to db successfully
+      flash[:notice] = "Article saved!"
+      #then we try to redirect to some page to show
+      redirect_to article_path(@article)
+    else
+      #if save failed, will lead to 'new' pages
+      #so go to new page to add some message to show the
+      #error message
+      render 'new'
+    end
+
+  end
+
+
+  def show
+
+    @article = Article.find(params[:id])
+
 
   end
 
