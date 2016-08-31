@@ -31,7 +31,7 @@ $navbar-default-bg: black;
 
 .jumbotron {
 
-  background-image: asset-url('alpha_blog_warrior.jpg');
+  background-image: asset-url('collections_173229_work-online');
   background-size:  cover;
   height: 500px;
   width: 1000px;
@@ -44,12 +44,23 @@ $navbar-default-bg: black;
   margin-bottom: 30px;
   letter-spacing: -1px;
   font-weight: bold;
+
 }
 
 .btn-xlarge{
 
   font-size: 1.7em;
-  background-color: black;
+  //background-color: black;
+
+}
+.article-actions{
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
+}
+
+.description {
+
+  margin-top:  0px;
 }
 
 footer {
