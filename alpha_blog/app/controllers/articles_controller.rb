@@ -18,8 +18,11 @@ class ArticlesController < ApplicationController
     #just for log to check the parameters.
     #render plain: params[:article].inspect
 
+    #debugger
 
     @article = Article.new(article_params)
+    #hard code an user first. since we have no loging system right now
+    @article.user = User.first
 
     if @article.save    #.save will save to db
       #if save to db successfully
