@@ -5,4 +5,9 @@ Rails.application.routes.draw do
 
   # for adding articles routes to pages, check the rake routes...
   resources :articles
+
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
+
+  #resources :users
 end
