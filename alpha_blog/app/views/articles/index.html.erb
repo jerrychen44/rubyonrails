@@ -1,5 +1,12 @@
 <h1 align="center">listing all articles</h1>
 
 <!-- move to _article.html.erb since user will also use this articles list-->
+<div align="center">
+  <%= will_paginate %> <!--add the paginate to select the next-->
+</div>
 
 <%= render 'article', obj: @articles %>
+
+<div align="center">
+  <%= will_paginate %>
+</div>
