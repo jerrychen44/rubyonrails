@@ -1,0 +1,18 @@
+<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+<!--@uesr which passed from users_controller.rb def show @user = User.find(params[:id])-->
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+    <%= gravatar_for @user %>
+
+  </div>
+</div>
+
+<!--Call out python example-->
+<!--
+<#% cmd = "python3.4 "+ "#{Rails.root}/app/assets/pythonscripts/test.py" %>
+<#% result = %x[#{cmd} &] %>
+<#%= result %>
+-->
+
+<h4 align="center"><%= @user.username %>'s articles</h4>
