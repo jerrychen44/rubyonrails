@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  #we move @user = User.find(params[:id])  to def set_user, and add before_action at the
+  #first beginning, that is because edit ,show,update can use the same
+  #method
+  before_action :set_user, only: [:edit, :update, :show]
+
   def index
     #@user = User.all
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -22,12 +27,22 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
 
+    #@user = User.find(params[:id])
+    #we move this line to def set_user, and add before_action at the
+    #first beginning, that is because edit ,show,update can use the same
+    #method
   end
 
   def update
-    @user = User.find(params[:id])
+
+
+    #@user = User.find(params[:id])
+    #we move this line to def set_user, and add before_action at the
+    #first beginning, that is because edit ,show,update can use the same
+    #method
+
+
     if @user.update(user_params) #if update ok
       #show the flash message at the top, success = green color
       flash[:success] = "Your account was update successfully"
@@ -39,7 +54,12 @@ class UsersController < ApplicationController
 
 
   def show
-    @user = User.find(params[:id])
+
+    #@user = User.find(params[:id])
+    #we move this line to def set_user, and add before_action at the
+    #first beginning, that is because edit ,show,update can use the same
+    #method
+
 
     #to add the pagination, we don't pass the user to pagination, becuase
     #we want is paginate the articles of one author.
@@ -55,4 +75,10 @@ class UsersController < ApplicationController
     #so def create, def update can get the username, email and password
     params.require(:user).permit(:username, :email, :password)
   end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+
 end
