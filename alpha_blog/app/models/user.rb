@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   #because this file is user model, means
   #user can apper in many articles. 1 (user) to many (articles)
-  has_many :articles
+  has_many :articles, dependent: :destroy
 
   #change the email to lower case before go to validate below.
   before_save { self.email = email.downcase }
