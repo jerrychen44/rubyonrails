@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params)
     #hard code an user first. since we have no loging system right now
-    @article.user = User.first
+    @article.user = current_user
 
     if @article.save    #.save will save to db
       #if save to db successfully
