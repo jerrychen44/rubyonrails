@@ -14,7 +14,9 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "name should be present" do
+    #http://guides.rubyonrails.org/active_record_validations.html#presence
     @category.name = " "
+    puts "\n\n jerry name should be present testing =#{@category.valid?}"
     assert_not @category.valid?
   end
 
@@ -29,6 +31,7 @@ class CategoryTest < ActiveSupport::TestCase
 
   test "name should not be too long" do
     @category.name = "a" *26
+    puts "\n\n jerry name should not be too long testing =#{@category.valid?}"
     assert_not @category.valid?
   end
 
