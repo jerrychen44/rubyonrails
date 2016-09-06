@@ -2,6 +2,15 @@ require 'test_helper'
 #http://guides.rubyonrails.org/testing.html
 class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
+  #  categories GET    /categories(.:format)          categories#index
+  #             POST   /categories(.:format)          categories#create
+  #new_category GET    /categories/new(.:format)      categories#new
+  #edit_category GET    /categories/:id/edit(.:format) categories#edit
+  #    category GET    /categories/:id(.:format)      categories#show
+  #             PATCH  /categories/:id(.:format)      categories#update
+  #             PUT    /categories/:id(.:format)      categories#update
+
+
   test "get new category form and create category"  do
     get new_category_path # in rake routes=>  new_category GET    /categories/new(.:format)      categories#new
     assert_template 'categories/new' #to check the categories new html is ok or not
