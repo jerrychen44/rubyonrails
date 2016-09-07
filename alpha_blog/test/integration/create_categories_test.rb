@@ -11,7 +11,25 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
   #             PUT    /categories/:id(.:format)      categories#update
 
 
+  def setup
+    #because we add the test "should redirect create when admin not logged in"
+    #/test/controllers/categories_controller_test.rb
+    #so we need to let originl test to login as admin.
+    #use User.create will also hit to database.
+    @user = User.create(username: "jone",email: "john@example.com",password: "password", admin:true)
+  end
+
+
+
+
   test "get new category form and create category"  do
+
+    #because we add the test "should redirect create when admin not logged in"
+    #/test/controllers/categories_controller_test.rb
+    #so we need to let originl test to login as admin.
+    sign_in_as(@user, "password") #sign_in_as method will implement in /test/test_helper.rb
+
+
     get new_category_path # in rake routes=>  new_category GET    /categories/new(.:format)      categories#new
     assert_template 'categories/new' #to check the categories new html is ok or not
 
@@ -33,6 +51,15 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 
 
   test "invalid category submission results in failure" do
+
+
+    #because we add the test "should redirect create when admin not logged in"
+    #/test/controllers/categories_controller_test.rb
+    #so we need to let originl test to login as admin.
+    sign_in_as(@user, "password")
+
+
+
     #if I get the /categories/new get request
     #new_category GET    /categories/new(.:format)      categories#new
     #  def new
