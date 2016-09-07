@@ -1,6 +1,6 @@
 require 'test_helper'
 #http://guides.rubyonrails.org/testing.html
-class CreateCategoriesTest < ActionDispatch::IntegrationTest
+class ListCreateCategoriesTest < ActionDispatch::IntegrationTest
 
 
 #  categories GET    /categories(.:format)          categories#index
@@ -11,7 +11,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 #             PATCH  /categories/:id(.:format)      categories#update
 #             PUT    /categories/:id(.:format)      categories#update
   def setup
-    @category = Category.create(name: "books")
+    @category = Category.create(name: "sports")
     @category2 = Category.create(name: "programming")
   end
 
