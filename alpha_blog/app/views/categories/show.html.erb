@@ -1,0 +1,12 @@
+<h1 align="center"><%= "Category:" + @category.name %></h1>
+
+<!-- move to _article.html.erb since user will also use this articles list-->
+<div align="center">
+  <%= will_paginate @category_articles %> <!--add the paginate to select the next-->
+</div>
+
+<%= render 'articles/article', obj: @category_articles %>
+
+<div align="center">
+  <%= will_paginate @category_articles %>
+</div>
